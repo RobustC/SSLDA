@@ -40,7 +40,6 @@
 %     if A is a matrix.
 %     Default = 200.
 %
-% Modified by Rossi Luo (xi.rossi.luo@gmail.com), Sept 2010
 
 function xp = clime(x0, A,  b, epsilon, pdtol, pdmaxiter, cgtol, cgmaxiter)
 
