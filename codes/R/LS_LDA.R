@@ -39,13 +39,13 @@ for(i in 1:p){
 
 x=rmvnorm(n=n1,mean=mu1,sigma=Sigma)
 #x <- mvt(mu1, Sigma, nu=2, n1) #自由度为2的多元t分布
-#x <- MixNormal(n1,p,0.8,mu1,Sigma)#混合正态分布
+#x <- MixN(n1,p,mu=mu1,Sigma=Sigma,Kappa=0.8)#混合正态分布
 #x <- mvt(mu1, Sigma, nu=1, n1) #多元柯西分布
 
 
 y=rmvnorm(n=n2,mean=mu2,sigma=Sigma)
 #y <- mvt(mu2, Sigma, nu=2, n2) #自由度为5的多元t分布
-#y <- MixNormal(n2,p,0.8,mu2,Sigma) #混合正态分布
+#y <- MixN(n1,p,mu=mu1,Sigma=Sigma,Kappa=0.8) #混合正态分布
 #y <- mvt(mu2, Sigma, nu=1, n2) #自由度为1的多元t分布(柯西分布)
 
 # estimators
@@ -63,7 +63,7 @@ beta<-obj.path$beta
 
 z1=rmvnorm(n=n1,mean=mu1,sigma=Sigma)
 #z1 <- mvt(mu1, Sigma, nu=2, n1) #自由度为5的多元t分布
-#z1 <-  MixNormal(n1,p,0.8,mu1,Sigma)
+#z1 <-  MixN(n1,p,mu=mu1,Sigma=Sigma,Kappa=0.8)
 #z1 <- mvt(mu1, Sigma, nu=1, n1) #自由度为1的多元t分布(柯西分布)
 
 pred1<-as.matrix(cbind(1,z1)%*%beta)
@@ -73,7 +73,7 @@ pred1<-ifelse(pred1<0,1,0)
 
 z2=rmvnorm(n=n2,mean=mu2,sigma=Sigma)
 #z2 <- mvt(mu2, Sigma, nu=2, n2) #自由度为2的多元t分布
-#z2 <- MixNormal(n2,p,0.8,mu2,Sigma) #混合正态分布
+#z2 <- MixN(n1,p,mu=mu1,Sigma=Sigma,Kappa=0.8) #混合正态分布
 #z2 <- mvt(mu2, Sigma, nu=1, n2) #自由度为1的多元t分布(柯西分布)
 
 pred2<-as.matrix(cbind(1,z2)%*%beta)
@@ -85,5 +85,6 @@ ce=1-mean(pred1+pred2)/2
 
 return(ce)
 }
+
 
 
