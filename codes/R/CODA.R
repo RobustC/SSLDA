@@ -44,12 +44,12 @@ CODA<-function(s0,p){
 
   #x0=rmvnorm(n=n1,mean=mu1,sigma=Sigma)
   #x0 <- mvt(mu1, Sigma, nu=2, n1) #自由度为2的多元t分布
-  #x0 <- MixNormal(n1,p,0.8,mu1,Sigma)#混合正态分布
+  #x0 <- MixN(n1,p,mu=mu1,Sigma=Sigma,Kappa=0.8)#混合正态分布
   x0 <- mvt(mu1, Sigma, nu=1, n1) #自由度为1的多元t分布(柯西分布)
   
   #y0=rmvnorm(n=n2,mean=mu2,sigma=Sigma)
   #y0 <- mvt(mu2, Sigma, nu=2, n2) #自由度为5的多元t分布
-  #y0 <- MixNormal(n2,p,0.8,mu2,Sigma) #混合正态分布
+  #y0 <- MixN(n1,p,mu=mu1,Sigma=Sigma,Kappa=0.8)#混合正态分布
   y0 <- mvt(mu2, Sigma, nu=1, n2) #自由度为1的多元t分布(柯西分布)
   
  
@@ -89,12 +89,12 @@ CODA<-function(s0,p){
   #测试集
   #z10=rmvnorm(n=n1,mean=mu1,sigma=Sigma)
   #z10 <- mvt(mu1, Sigma, nu=2, n1) #自由度为5的多元t分布
-  #z10 <-  MixNormal(n1,p,0.8,mu1,Sigma)
+  #z10 <- MixN(n1,p,mu=mu1,Sigma=Sigma,Kappa=0.8)
   z10 <- mvt(mu1, Sigma, nu=1, n1) #自由度为1的多元t分布(柯西分布)
   
   #z20=rmvnorm(n=n2,mean=mu2,sigma=Sigma)
   #z20 <- mvt(mu2, Sigma, nu=2, n2) #自由度为5的多元t分布
-  #z20 <- MixNormal(n2,p,0.8,mu2,Sigma) #混合正态分布
+  #z20 <- MixN(n1,p,mu=mu1,Sigma=Sigma,Kappa=0.8) #混合正态分布
   z20 <- mvt(mu2, Sigma, nu=1, n2) #自由度为1的多元t分布(柯西分布)
   
 
@@ -112,5 +112,6 @@ CODA<-function(s0,p){
   
   return(ce)
 }
+
 
 
